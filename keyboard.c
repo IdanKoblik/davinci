@@ -15,7 +15,7 @@ int create_keyboard(void) {
 
     ioctl(fd, UI_SET_EVBIT, EV_KEY);
     ioctl(fd, UI_SET_EVBIT, EV_SYN);
-    for (int k = KEY_A; k <= KEY_Z; k++)
+    for (int k = KEY_RESERVED; k <= KEY_MICMUTE; k++)
         ioctl(fd, UI_SET_KEYBIT, k);
 
     struct uinput_user_dev uidev;

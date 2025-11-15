@@ -8,4 +8,8 @@ add_executable(davinci main.c
         device.h
         keyboard.c
         keyboard.h
+        config.c
+        config.h
+        pkgs/hashmap.c
+        pkgs/hashmap.h
 )

@@ -14,14 +14,14 @@
  * BTN_STYLUS2 - HIGHER BUTTON
  */
 
-char *get_device(void) {
+int get_device(void) {
     char *path = "/dev/input/";
 
     struct dirent *entry;
     DIR *dir = opendir(path);
     if (dir == NULL) {
         perror("Error opening directory\n");
-        return "";
+        return -1;
     }
 
     while ((entry = readdir(dir)) != NULL) {
@@ -47,9 +47,8 @@ char *get_device(void) {
         struct input_id id;
         if (ioctl(fd, EVIOCGID, &id) == 0) {
             if (id.vendor == VENDOR_ID) {
-                close(fd);
                 closedir(dir);
-                return file;
+                return fd;
             }
         }
 
@@ -58,5 +57,5 @@ char *get_device(void) {
     }
 
     closedir(dir);
-    return "";
+    return -1;
 }

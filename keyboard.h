@@ -12,13 +12,13 @@ private:
    int fd;
 
 public:
-    std::string get_name(void) const;
-    int get_fd(void) const;
+    std::string getName(void) const;
+    int getFd(void) const;
 
-    int create_keyboard(std::string name);
-    bool close_keyboard();
-    bool send_key(int code, int value);
-    bool send_syn(void);
+    int createKeyboard(std::string name);
+    bool closeKeyboard();
+    bool sendKey(int code, int value);
+    bool sendSyn(void);
 };
 
 #endif //DAVINCI_KEYBOARD_H

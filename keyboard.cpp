@@ -6,15 +6,15 @@
 #include <unistd.h>
 #include <linux/uinput.h>
 
-std::string Keyboard::get_name(void) const {
+std::string Keyboard::getName(void) const {
     return this->name;
 }
 
-int Keyboard::get_fd(void) const {
+int Keyboard::getFd(void) const {
     return this->fd;
 }
 
-int Keyboard::create_keyboard(std::string name) {
+int Keyboard::createKeyboard(std::string name) {
     const int fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
     if (fd < 0) {
         perror("Error opening /dev/uinput");
@@ -51,7 +51,7 @@ int Keyboard::create_keyboard(std::string name) {
     return fd;
 }
 
-bool Keyboard::close_keyboard() {
+bool Keyboard::closeKeyboard() {
     if (ioctl(this->fd, UI_DEV_DESTROY) == -1) {
         perror("Error destroying keyboard");
         return false;
@@ -65,7 +65,7 @@ bool Keyboard::close_keyboard() {
     return true;
 }
 
-bool Keyboard::send_key(int code, int value) {
+bool Keyboard::sendKey(int code, int value) {
     input_event ev;
     ev.type = EV_KEY;
     ev.code = code;
@@ -80,7 +80,7 @@ bool Keyboard::send_key(int code, int value) {
     return true;
 }
 
-bool Keyboard::send_syn() {
+bool Keyboard::sendSyn() {
     input_event ev;
     ev.type = EV_SYN;
     ev.code = SYN_REPORT;

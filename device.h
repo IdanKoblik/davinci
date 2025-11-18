@@ -3,6 +3,6 @@
 
 #define VENDOR_ID 0x056a
 
-int get_device(void);
+int getDevice(void);
 
 #endif //DAVINCI_DEVICE_H

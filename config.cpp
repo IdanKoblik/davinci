@@ -6,15 +6,15 @@
 
 std::string ButtonShortcut::buttonToString(StylusButton button) {
     switch (button) {
-        case StylusButton::BTN_1: return "BTN_1";
-        case StylusButton::BTN_2: return "BTN_2";
+        case StylusButton::Button1: return "Button1";
+        case StylusButton::Button2: return "Button2";
         default: return "UNKNOWN";
     }
 }
 
 StylusButton ButtonShortcut::stringToButton(const std::string &str) {
-    if (str == "BTN_1") return StylusButton::BTN_1;
-    if (str == "BTN_2") return StylusButton::BTN_2;
+    if (str == "Button1") return StylusButton::Button1;
+    if (str == "Button2") return StylusButton::Button2;
     return StylusButton::UNKNOWN;
 }
 

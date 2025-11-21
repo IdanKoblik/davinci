@@ -1,8 +1,8 @@
 #ifndef DAVINCI_DEVICE_H
 #define DAVINCI_DEVICE_H
 
-#define VENDOR_ID 0x056a
+#include "config.h"
 
-int getDevice();
+int getDevice(Config &cfg);
 
 #endif //DAVINCI_DEVICE_H

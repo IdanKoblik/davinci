@@ -7,8 +7,8 @@
 #define FILE_NAME "davinci.ini"
 
 enum class StylusButton {
-    BTN_1,
-    BTN_2,
+    Button1,
+    Button2,
     UNKNOWN
 };
 

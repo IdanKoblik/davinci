@@ -1,5 +1,6 @@
 #include "device.h"
 
+#include <iostream>
 #include <linux/input-event-codes.h>
 #include <stdio.h>
 #include <dirent.h>
@@ -15,8 +16,8 @@
  * BTN_STYLUS2 - HIGHER BUTTON
  */
 
-int getDevice() {
-    char *path = "/dev/input/";
+int getDevice(Config &cfg) {
+    const char *path = "/dev/input/";
 
     dirent *entry;
     DIR *dir = opendir(path);
@@ -47,7 +48,10 @@ int getDevice() {
 
         input_id id;
         if (ioctl(fd, EVIOCGID, &id) == 0) {
-            if (id.vendor == VENDOR_ID) {
+            unsigned long vendor = std::stoul(cfg.getVendorId(), nullptr, 16);
+            if (id.vendor == vendor) {
+                std::cout << "huh" << std::endl;
+
                 closedir(dir);
                 return fd;
             }

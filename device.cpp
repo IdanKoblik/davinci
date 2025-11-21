@@ -15,7 +15,7 @@
  * BTN_STYLUS2 - HIGHER BUTTON
  */
 
-int getDevice(void) {
+int getDevice() {
     char *path = "/dev/input/";
 
     dirent *entry;

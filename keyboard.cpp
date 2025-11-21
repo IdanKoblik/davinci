@@ -6,11 +6,11 @@
 #include <unistd.h>
 #include <linux/uinput.h>
 
-std::string Keyboard::getName(void) const {
+std::string Keyboard::getName() const {
     return this->name;
 }
 
-int Keyboard::getFd(void) const {
+int Keyboard::getFd() const {
     return this->fd;
 }
 

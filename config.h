@@ -24,8 +24,8 @@ public:
    static std::string buttonToString(StylusButton button);
    static StylusButton stringToButton(const std::string &str);
 
-   const StylusButton getButton(void) const;
-   const std::string getShortcut(void) const;
+   const StylusButton getButton() const;
+   const std::string getShortcut() const;
 };
 
 class AppMapping {
@@ -36,8 +36,8 @@ private:
 public:
    AppMapping(const std::string& name = "") : appName(name) {}
 
-    const std::string& getAppName(void) const;
-    const std::vector<ButtonShortcut>& getShortcuts(void) const;
+    const std::string& getAppName() const;
+    const std::vector<ButtonShortcut>& getShortcuts() const;
     void addShortcut(StylusButton button, const std::string& shortcut);
     void setAppName(const std::string& name);
 };
@@ -48,7 +48,7 @@ private:
    std::vector<AppMapping> apps;
 
 public:
-   void writeConfig(void) const;
+   void writeConfig() const;
    void readConfig(const std::string& path);
 
     const std::string& getVendorId() const;

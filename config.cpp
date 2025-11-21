@@ -50,11 +50,11 @@ void Config::addAppMapping(const AppMapping& mapping) {
     apps.push_back(mapping);
 }
 
-const StylusButton ButtonShortcut::getButton(void) const {
+const StylusButton ButtonShortcut::getButton() const {
    return this->button;
 }
 
-const std::string ButtonShortcut::getShortcut(void) const {
+const std::string ButtonShortcut::getShortcut() const {
    return this->shortcut;
 }
 
